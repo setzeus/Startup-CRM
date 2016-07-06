@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+    <!-- The CSS package above applies Google styling to buttons and other elements. -->
+
+    <style>
+    .branding-below {
+      bottom: 150px;
+      top: 0;
+    }
+
+    .branding-text {
+      left: 7px;
+      position: relative;
+      top: 3px;
+    }
+
+    .col-contain {
+      overflow: hidden;
+    }
+
+    .col-one {
+      float: left;
+      width: 50%;
+    }
+    .col-two {
+      float: right;
+      width:50%;
+    }
+
+    .logo {
+      vertical-align: middle;
+    }
+
+    .radio-spacer {
+      height: 20px;
+    }
+
+    .width-100 {
+      width: 100%;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar branding-below">
+      <form>
+      
+        <h1>Add New Entry</h1>
+       
+        <div class="block col-contain">
+  
+        <h2>Contact Info</h2>
+        
+         <div class="block width-100">
+          <label for="customer-name">Name</label>
+          <input type="input" id="name">
+         </div>
+         
+         <div class="block width-100">
+          <label for="customer-email">Email</label>
+          <input type="input" id="email">
+         </div>
+        
+        <div class="block width-100">
+          <label for="customer-company">Company</label>
+          <input type="input" id="company">
+         </div>
+         
+         <div class="block width-100">
+          <label for="customer-title">Title</label>
+          <input type="input" id="title">
+         </div>
+         
+         <div class="block width-100">
+          <label for="customer-number">Number</label>
+          <input type="input" id="number">
+         </div>
+         
+         <div class="inline form-group">
+         <label for="city">City</label>
+         <input type="text" id="city" style="width: 100px;">
+         </div>
+         <div class="inline form-group">
+         <label for="state">State</label>
+         <input type="text" id="state" style="width: 40px;">
+         </div>
+         <div class="inline form-group">
+         <label for="zip-code">Zip code</label>
+         <input type="text" id="zip-code" style="width: 50px;">
+         </div>  
+        
+        <br>
+        <h2>Sales Info</h2>
+         <div class="block width-100">
+          <label for="customer-coac">COAC</label>
+          <input type="input" id="coac">
+         </div>
+         
+         <div class="col-one">
+            <b>Referred</b>
+            <div>
+              <input type="radio" name="referred" id="referred-yes" value="yes">
+              <label for="radio-origin-en">Yes</label>
+            </div>
+            <div>
+              <input type="radio" name="referred" id="referred-no" value="no">
+              <label for="radio-origin-fr">No</label>
+            </div>
+            
+           <div class="block">
+           <br>
+           <b>Stage</b>
+           <br>
+           <select id="stage">
+            <option value="Qualified">Qualified</option>
+            <option value="Account">Account</option>
+            <option value="Closed">Closed</option>
+           </select>
+           
+          </div>
+          
+          <br>
+          <br>
+                  
+          </div>
+          
+          <div class="col-two">
+           <b>Referral</b>
+            <div>
+              <input type="radio" name="referral" id="referral-yes" value="yes">
+              <label for="radio-origin-en">Yes</label>
+            </div>
+            <div>
+              <input type="radio" name="referral" id="referral-no" value="no">
+              <label for="radio-origin-fr">No</label>
+            </div>
+            
+            
+             <div class="block">
+             <br>
+           <b>Medium</b>
+           <br>
+           <select id="medium">
+            <option value="email">Email</option>
+            <option value="in-person">In-Person</option>
+            <option value="phone">Phone</option>
+           </select>
+          </div>
+            
+          <br> 
+          <br> 
+           
+          </div>
+       
+          <br>
+          
+          <div class="block">
+           <label for="customer-1st-contact"><b>1st Contact</b></label>
+           <input type="date" id="date">
+          </div>
+          
+          <br>
+          
+          <h2>Building Rapport</h2>
+          
+            <div class="form-group">
+            <label for="sampleTextArea"><b>COAC Items</b></label>
+            <textarea id="coacTextArea" rows="3"></textarea>
+            </div>
+         	
+            <div class="form-group">
+            <label for="sampleTextArea"><b>Objections</b></label>
+            <textarea id="objectionsTextArea" rows="3"></textarea>
+            </div>
+            
+            
+            <div class="form-group">
+            <label for="sampleTextArea"><b>Personal Facts</b></label>
+            <textarea id="personalFactsTextArea" rows="3"></textarea>
+            </div>
+            
+             <br>
+          
+          <div class="block" id="button-bar">
+           <button class="blue" id="run-crm">Add Customer</button>
+          </div>
+     
+        </div>
+      </form>
+    </div>
+
+    <div class="sidebar bottom">
+      <div class="col-one">
+         <img alt="Add-on logo" class="logo" align="middle" src="https://s31.postimg.org/eaiiufi2z/coinbase_BTCaddress.jpg" width="90" height="90">
+      </div>
+      <div class="col-two">
+         <span class="gray branding-text">Made from love. If you want to suggest dope features or buy me a cup of coffee! I'll make sure to keep churning more Add-ons.</span>
+      </div>
+    </div>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+     <script>
+
+     $(function() {
+       $('#run-crm').click(newEntry);
+     });
+      
+      function newEntry() {
+        
+        var entry = []; 
+       
+        var name = $("#name").val();
+        var email = $("#email").val();
+        var company= $("#company").val();
+        var title= $("#title").val();
+        var number= $("#number").val();
+        var city= $("#city").val();
+        var state= $("#state").val();
+        var zip = $("#zip-code").val();
+        var referred = $('input:radio[name="referred"]').val();
+        var referral = $('input:radio[name="referral"]').val();
+        var stage = $("#stage").val();
+        var medium = $("#medium").val();
+        var date = $("#date").val();
+        var coac = $("#coac").val();
+        var coacReasons = $("#coacTextArea").val();
+        var objections = $("#objectionsTextArea").val();
+        var personal = $("#personalFactsTextArea").val();
+        
+        entry = [name,email,company,title,number,city,state,zip,referred,referral,stage,medium,date,coac,coacReasons,objections,personal]; 
+        
+        google.script.run.newEnter(entry);
+        
+      }
+      
+     </script>
+
+    
+  </body>
+</html>
